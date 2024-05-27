@@ -3,10 +3,10 @@
 <ul>
     <% @houses.each do |house| %>
         <li>
-            <%= house.title%>
-            <dt><%= house.image%></dt>
-            <dt><%= house.description%></dt>
-            <dt><%= house.price%></dt>
+            <%= link_to house.title, house%>
+                <dt><%= house.image %></dt>
+                <dt><%= house.description %></dt>
+                <dt><%= house.price %></dt>
         </li>
         <% end %>
 
