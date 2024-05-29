@@ -1,3 +1,7 @@
 <h1><%= @house.title %></h1>
 
 <p><%= @house.description %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_house_path(@house) %></li>
+</ul>

@@ -12,12 +12,26 @@ class HousesController < ApplicationController
   end
 
   def create
-    @house = House.new(title: "...", image: "...", description: "...", price: "...")
+    @house = House.new(house_params)
 
     if @house.save
       redirect_to @house
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @house = House.find(params[:id])
+  end
+
+  def update
+    @house = Article.find(params[:id])
+
+    if @house.update(house_params)
+      redirect_to @house
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
