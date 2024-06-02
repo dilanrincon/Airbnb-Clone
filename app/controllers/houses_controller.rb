@@ -26,13 +26,20 @@ class HousesController < ApplicationController
   end
 
   def update
-    @house = Article.find(params[:id])
+    @house = House.find(params[:id])
 
     if @house.update(house_params)
       redirect_to @house
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @house = House.find(params[:id])
+    @house.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private
